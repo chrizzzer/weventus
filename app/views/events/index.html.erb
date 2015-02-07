@@ -1,5 +1,28 @@
-<h1>Listing events</h1>
-<%= link_to 'New Event', new_event_path %>
+<div class="nav">
+  <img class="brand" src="http://www.localworksupporter.com/wbrand.png" />
+  <button id="btnFilter" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Filter<i class="fa fa-bars"></i></button>
+  <div class="inner">
+    <p class="space">
+      <a href="http://localhost:3000/maps/map">
+        <img class="globe" src="http://www.localworksupporter.com/globe.png" width="87"/></a></p>
+  </div>
+  <a href="#" class="button gray login" onclick="loginOverlay()">LOGIN</a></div>
+  <div id="lgOverlay" style="visibility: hidden;">
+  <div id="dialog" title="Basic dialog">
+  <p>
+  <div class="login">
+          <h1>Login</h1>
+        <form method="post">
+            <input type="text" name="u" placeholder="Username" required="required" />
+            <input type="password" name="p" placeholder="Password" required="required" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Sign in</button>
+            </form>
+  </div>
+  </p>
+  </div>
+ </div>
+<div class="wrapper">
+<div class="timeline"></div>
 <table>
   <tr>
     <th>Name</th>
@@ -11,11 +34,11 @@
 
   <% @event.each do |event| %>
     <tr>
-      <td><%= event.name %></td>
-      <td><%= event.category %></td>
-      <td><%= event.place %></td>
-      <td><%= event.price %></td>
-      <td><%= event.date %></td>
+      <td class="name"><%= event.name %></td>
+      <td class="category"><%= event.category %></td>
+      <td class="place"><%= event.place %></td>
+      <td class="price"><%= event.price %></td>
+      <td class="date"><%= event.date %></td>
       <td><%= link_to 'Show', event_path(event) %></td>
       <td><%= link_to 'Edit', edit_event_path(event) %></td>
       <td><%= link_to 'Destroy', event_path(event),
@@ -24,3 +47,35 @@
     </tr>
   <% end %>
 </table>
+<%= link_to 'New Event', new_event_path %>
+</div>
+
+<script>
+$(document).ready(function () {
+
+
+  var stickyNavTop = $(".nav").offset().top;
+
+  var stickyNav = function(){
+  var scrollTop = $(window).scrollTop();
+
+if (scrollTop > stickyNavTop) {
+  $(".nav").addClass("sticky");
+  } else {
+  $(".nav").removeClass("sticky");
+  }
+};
+
+stickyNav();
+
+ $(window).scroll(function() {
+   stickyNav();
+ });
+});
+
+function loginOverlay() {
+  var enterCode = document.getElementById("lgOverlay");
+  enterCode.style.visibility = (enterCode.style.visibility == "visible") ? "hidden" : "visible";
+}
+
+ </script>
