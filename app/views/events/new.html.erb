@@ -1,0 +1,27 @@
+<h1>Add an event</h1>
+<%= form_for :event, url: events_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
