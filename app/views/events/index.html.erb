@@ -1,5 +1,10 @@
+<script src="http://www.localworksupporter.com/jquery213min.js"></script>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <div class="nav">
-  <img class="brand" src="http://www.localworksupporter.com/wbrand.png" />
+  <img class="brand" src="http://www.localworksupporter.com/wbrand.png" /><img class="typo" src="http://www.localworksupporter.com/TYPE.png" />
   <button id="btnFilter" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Filter<i class="fa fa-bars"></i></button>
   <div class="inner">
     <p class="space">
@@ -10,7 +15,7 @@
   <div id="lgOverlay" style="visibility: hidden;">
   <div id="dialog" title="Basic dialog">
   <p>
-  <div class="login">
+  <div class="loginBox">
           <h1>Login</h1>
         <form method="post">
             <input type="text" name="u" placeholder="Username" required="required" />
@@ -52,6 +57,56 @@
 <%= link_to 'New Event', new_event_path %>
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+      </div>
+
+      <div class="modal-body">
+        <div><h5>Category</h5>
+     <input type="checkbox">All categories
+     <input type="checkbox">Sport
+     <input type="checkbox">Music
+     <input type="checkbox">Education
+     <input type="checkbox">Science/Tech
+     <input type="checkbox">Spiritual
+     <input type="checkbox">Other
+        </div>
+                <div><h5>Date</h5>
+    <input type="checkbox">Today
+  <input type="checkbox">Tomorrow
+    <input type="checkbox">This Week
+    <input type="checkbox">Next Weekend
+    <input type="checkbox">This Month
+        </div>
+
+         <div><h5>Price</h5>
+     <input type="checkbox">Free
+     <input type="checkbox">1-100
+     <input type="checkbox">101-250
+     <input type="checkbox">251-500
+     <input type="checkbox">501-1000
+     <input type="checkbox">1000+
+        </div>
+
+         <div><h5>Zip Code</h5>
+  <input type="text" name="zipcode">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+</div>
+
+
+ </div>
+
 <script>
 $(document).ready(function () {
 
@@ -79,5 +134,11 @@ function loginOverlay() {
   var enterCode = document.getElementById("lgOverlay");
   enterCode.style.visibility = (enterCode.style.visibility == "visible") ? "hidden" : "visible";
 }
+
+var anchor = document.getElementsByTagName('a');
+anchor[5].className += " " + "btn";
+anchor[5].className += " " + "btn-primary";
+anchor[5].className += " " + "btn-block";
+anchor[5].className += " " + "btn-large";
 
  </script>
