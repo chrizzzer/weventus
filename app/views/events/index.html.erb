@@ -30,6 +30,7 @@
     <th>Place</th>
     <th>Price</th>
     <th>Date</th>
+    <th>Submits</th>
   </tr>
 
   <% @event.each do |event| %>
@@ -39,6 +40,7 @@
       <td class="place"><%= event.place %></td>
       <td class="price"><%= event.price %></td>
       <td class="date"><%= event.date %></td>
+      <td class="submits"><%= event.submits %></td>
       <td><%= link_to 'Show', event_path(event) %></td>
       <td><%= link_to 'Edit', edit_event_path(event) %></td>
       <td><%= link_to 'Destroy', event_path(event),
